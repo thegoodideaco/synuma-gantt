@@ -7706,7 +7706,7 @@ a.text-green:hover, a.text-green:focus {
 .not-started {
   background-color: #B8B8B8; }
 
-.metadata {
+.phase {
   width: 600px; }
 
 .milestone {
@@ -7715,5 +7715,9 @@ a.text-green:hover, a.text-green:focus {
 .task-list {
   font-size: .7em;
   color: blue; }
+
+.dates span {
+  font-size: .6em;
+  padding: 0px 3px; }
 
 /*# sourceMappingURL=styles.css.map */

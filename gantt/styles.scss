@@ -23,7 +23,7 @@ $theme-colors: (
   background-color: $light-gray;
 }
 
-.metadata {
+.phase {
   width: 600px;
 }
 
@@ -34,4 +34,11 @@ $theme-colors: (
 .task-list {
   font-size: .7em;
   color: blue;
+}
+
+.dates {
+  span {
+    font-size:.6em;
+    padding: 0px 3px;
+  }
 }
