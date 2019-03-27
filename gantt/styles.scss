@@ -38,7 +38,38 @@ $theme-colors: (
 
 .dates {
   span {
-    font-size:.6em;
-    padding: 0px 3px;
+    font-size:.7em;
+  }
+}
+
+.grid-col {
+  padding: 0 3px;
+  min-width: 15px;
+  &:not(.bar) {
+    border-right: 1px solid $light-gray;
+  }
+}
+
+.eom {
+  border-right: 1px solid gray;
+}
+
+.bar {
+  background-color: $green;
+}
+
+.phase-row,
+.milestone-row {
+}
+
+.phase-row {
+  span {
+    height: 10px;
+  }
+}
+
+.milestone-row {
+  span {
+    height: 20px;
   }
 }

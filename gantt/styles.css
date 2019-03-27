@@ -7717,7 +7717,24 @@ a.text-green:hover, a.text-green:focus {
   color: blue; }
 
 .dates span {
-  font-size: .6em;
-  padding: 0px 3px; }
+  font-size: .7em; }
+
+.grid-col {
+  padding: 0 3px;
+  min-width: 15px; }
+  .grid-col:not(.bar) {
+    border-right: 1px solid #B8B8B8; }
+
+.eom {
+  border-right: 1px solid gray; }
+
+.bar {
+  background-color: #417505; }
+
+.phase-row span {
+  height: 10px; }
+
+.milestone-row span {
+  height: 20px; }
 
 /*# sourceMappingURL=styles.css.map */
