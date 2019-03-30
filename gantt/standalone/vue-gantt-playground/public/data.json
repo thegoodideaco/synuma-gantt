@@ -1,0 +1,744 @@
+{
+   "data":{
+      "timelineName":"Brass Tap Condensed",
+      "unitName":"Olmer, KY",
+      "currentMilestoneId":2044,
+      "openInfo":{
+         "openDate":"2019-12-23T12:00:00+00:00",
+         "operatingWeeks":1
+      },
+      "includeWeekends":false,
+      "hasLandlordTurnoverDate":false,
+      "phases":[
+         {
+            "id":799,
+            "order":1,
+            "name":"Real Estate",
+            "startDate":"2019-01-04T12:00:00+00:00",
+            "isCurrent":true,
+            "milestones":[
+               {
+                  "id":2041,
+                  "name":"Submit LOI",
+                  "plannedCompleteDate":null,
+                  "estimatedCompleteDate":null,
+                  "actualCompleteDate":null,
+                  "startDate":null,
+                  "plannedDurationInDays":null,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":null,
+                  "tasks":[
+                     {
+                        "id":5837,
+                        "name":"Submit/Receive LOI",
+                        "status":5,
+                        "statusName":"N/A",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+
+                        ],
+                        "startDate":null,
+                        "plannedCompleteDate":null,
+                        "estimatedCompleteDate":null,
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":1,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":null,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":false,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":false,
+                  "order":1,
+                  "isOpenMilestone":false
+               },
+               {
+                  "id":2042,
+                  "name":"Site Approval",
+                  "plannedCompleteDate":null,
+                  "estimatedCompleteDate":null,
+                  "actualCompleteDate":null,
+                  "startDate":null,
+                  "plannedDurationInDays":null,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":null,
+                  "tasks":[
+                     {
+                        "id":5838,
+                        "name":"Create Space Plan",
+                        "status":5,
+                        "statusName":"N/A",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+
+                        ],
+                        "startDate":null,
+                        "plannedCompleteDate":null,
+                        "estimatedCompleteDate":null,
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":7,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":null,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":false,
+                        "audits":[
+
+                        ],
+                        "canReset":false,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     },
+                     {
+                        "id":5839,
+                        "name":"Site Approval",
+                        "status":5,
+                        "statusName":"N/A",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+
+                        ],
+                        "startDate":null,
+                        "plannedCompleteDate":null,
+                        "estimatedCompleteDate":null,
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":14,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":null,
+                        "isMilestoneStartTask":false,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":false,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":false,
+                  "order":2,
+                  "isOpenMilestone":false
+               },
+               {
+                  "id":2043,
+                  "name":"Executed LOI",
+                  "plannedCompleteDate":"2019-03-07T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-03-07T12:00:00+00:00",
+                  "actualCompleteDate":"2019-03-07T12:00:00+00:00",
+                  "startDate":"2019-01-04T12:00:00+00:00",
+                  "plannedDurationInDays":45,
+                  "actualDurationInDays":45,
+                  "estimatedDurationInDays":null,
+                  "tasks":[
+                     {
+                        "id":5834,
+                        "name":"Mutually Executed LOI",
+                        "status":4,
+                        "statusName":"Done",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+
+                        ],
+                        "startDate":"2019-01-04T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-03-07T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-03-07T12:00:00+00:00",
+                        "actualCompleteDate":"2019-03-07T12:00:00+00:00",
+                        "plannedDurationInDays":45,
+                        "actualDurationInDays":45,
+                        "estimatedDurationInDays":null,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":true,
+                  "isEnabled":true,
+                  "order":3,
+                  "isOpenMilestone":false
+               },
+               {
+                  "id":2044,
+                  "name":"Lease Execution",
+                  "plannedCompleteDate":"2019-05-20T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-05-20T12:00:00+00:00",
+                  "actualCompleteDate":null,
+                  "startDate":"2019-03-08T12:00:00+00:00",
+                  "plannedDurationInDays":52,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":52,
+                  "tasks":[
+                     {
+                        "id":5835,
+                        "name":"Execution of the Lease",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5834,
+                              "name":"Mutually Executed LOI"
+                           }
+                        ],
+                        "startDate":"2019-03-08T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-05-09T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-05-09T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":45,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":45,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":false,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     },
+                     {
+                        "id":5836,
+                        "name":"Financing Secured",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5835,
+                              "name":"Execution of the Lease"
+                           }
+                        ],
+                        "startDate":"2019-05-10T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-05-20T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-05-20T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":7,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":7,
+                        "isMilestoneStartTask":false,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":false,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":true,
+                  "isComplete":false,
+                  "isEnabled":true,
+                  "order":4,
+                  "isOpenMilestone":false
+               }
+            ],
+            "color":null
+         },
+         {
+            "id":800,
+            "order":2,
+            "name":"Drawings",
+            "startDate":"2019-05-10T12:00:00+00:00",
+            "isCurrent":false,
+            "milestones":[
+               {
+                  "id":2045,
+                  "name":"CD's Distributed",
+                  "plannedCompleteDate":"2019-06-28T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-06-28T12:00:00+00:00",
+                  "actualCompleteDate":null,
+                  "startDate":"2019-05-10T12:00:00+00:00",
+                  "plannedDurationInDays":36,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":36,
+                  "tasks":[
+                     {
+                        "id":5840,
+                        "name":"Start Architecturals",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5835,
+                              "name":"Execution of the Lease"
+                           }
+                        ],
+                        "startDate":"2019-05-10T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-05-10T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-05-10T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":1,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":1,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":false,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     },
+                     {
+                        "id":5841,
+                        "name":"Plans Done",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5840,
+                              "name":"Start Architecturals"
+                           }
+                        ],
+                        "startDate":"2019-05-13T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-06-28T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-06-28T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":35,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":35,
+                        "isMilestoneStartTask":false,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":true,
+                  "order":5,
+                  "isOpenMilestone":false
+               }
+            ],
+            "color":null
+         },
+         {
+            "id":801,
+            "order":3,
+            "name":"Permits",
+            "startDate":"2019-07-01T12:00:00+00:00",
+            "isCurrent":false,
+            "milestones":[
+               {
+                  "id":2046,
+                  "name":"Plans Submitted",
+                  "plannedCompleteDate":"2019-07-29T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-07-29T12:00:00+00:00",
+                  "actualCompleteDate":null,
+                  "startDate":"2019-07-01T12:00:00+00:00",
+                  "plannedDurationInDays":21,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":21,
+                  "tasks":[
+                     {
+                        "id":5842,
+                        "name":"Submit Plans for Permit",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5841,
+                              "name":"Plans Done"
+                           }
+                        ],
+                        "startDate":"2019-07-01T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-07-09T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-07-09T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":7,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":7,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":false,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     },
+                     {
+                        "id":5843,
+                        "name":"Permit Ready",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5842,
+                              "name":"Submit Plans for Permit"
+                           }
+                        ],
+                        "startDate":"2019-07-10T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-07-29T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-07-29T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":14,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":14,
+                        "isMilestoneStartTask":false,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":true,
+                  "order":6,
+                  "isOpenMilestone":false
+               }
+            ],
+            "color":null
+         },
+         {
+            "id":802,
+            "order":4,
+            "name":"Construction",
+            "startDate":"2019-07-30T12:00:00+00:00",
+            "isCurrent":false,
+            "milestones":[
+               {
+                  "id":2047,
+                  "name":"Start Construction",
+                  "plannedCompleteDate":"2019-08-16T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-08-16T12:00:00+00:00",
+                  "actualCompleteDate":null,
+                  "startDate":"2019-07-30T12:00:00+00:00",
+                  "plannedDurationInDays":14,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":14,
+                  "tasks":[
+                     {
+                        "id":5844,
+                        "name":"Pull Permit",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5843,
+                              "name":"Permit Ready"
+                           }
+                        ],
+                        "startDate":"2019-07-30T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-08-07T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-08-07T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":7,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":7,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":false,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     },
+                     {
+                        "id":5845,
+                        "name":"Start Construction",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5844,
+                              "name":"Pull Permit"
+                           }
+                        ],
+                        "startDate":"2019-08-08T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-08-16T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-08-16T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":7,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":7,
+                        "isMilestoneStartTask":false,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":true,
+                  "order":7,
+                  "isOpenMilestone":false
+               },
+               {
+                  "id":2048,
+                  "name":"C/O Issued",
+                  "plannedCompleteDate":"2019-12-12T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-12-12T12:00:00+00:00",
+                  "actualCompleteDate":null,
+                  "startDate":"2019-08-19T12:00:00+00:00",
+                  "plannedDurationInDays":84,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":84,
+                  "tasks":[
+                     {
+                        "id":5846,
+                        "name":"Construction Complete",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5845,
+                              "name":"Start Construction"
+                           }
+                        ],
+                        "startDate":"2019-08-19T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-12-12T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-12-12T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":84,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":84,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":true,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":null,
+                        "alwaysEndOnDayOfWeekDesc":"",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":true,
+                  "order":8,
+                  "isOpenMilestone":false
+               }
+            ],
+            "color":null
+         },
+         {
+            "id":803,
+            "order":5,
+            "name":"Open",
+            "startDate":"2019-12-13T12:00:00+00:00",
+            "isCurrent":false,
+            "milestones":[
+               {
+                  "id":2049,
+                  "name":"Grand Opening",
+                  "plannedCompleteDate":"2019-12-23T12:00:00+00:00",
+                  "estimatedCompleteDate":"2019-12-23T12:00:00+00:00",
+                  "actualCompleteDate":null,
+                  "startDate":"2019-12-13T12:00:00+00:00",
+                  "plannedDurationInDays":7,
+                  "actualDurationInDays":null,
+                  "estimatedDurationInDays":7,
+                  "tasks":[
+                     {
+                        "id":5847,
+                        "name":"Opening Day",
+                        "status":1,
+                        "statusName":"Not Started",
+                        "assignedToFirstName":"Mark",
+                        "assignedToLastName":"Bradford",
+                        "parentTasks":[
+                           {
+                              "order":0,
+                              "isActive":true,
+                              "childItems":[
+
+                              ],
+                              "id":5846,
+                              "name":"Construction Complete"
+                           }
+                        ],
+                        "startDate":"2019-12-13T12:00:00+00:00",
+                        "plannedCompleteDate":"2019-12-23T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-12-23T12:00:00+00:00",
+                        "actualCompleteDate":null,
+                        "plannedDurationInDays":7,
+                        "actualDurationInDays":null,
+                        "estimatedDurationInDays":7,
+                        "isMilestoneStartTask":true,
+                        "isMilestoneCloseOut":true,
+                        "audits":[
+
+                        ],
+                        "canReset":false,
+                        "isLandlordTurnover":false,
+                        "alwaysStartOnDayOfWeek":null,
+                        "alwaysStartOnDayOfWeekDesc":"",
+                        "alwaysEndOnDayOfWeek":1,
+                        "alwaysEndOnDayOfWeekDesc":"Monday",
+                        "endWithEarliestParent":false,
+                        "holdEstimatedDate":false
+                     }
+                  ],
+                  "isCurrent":false,
+                  "isComplete":false,
+                  "isEnabled":true,
+                  "order":9,
+                  "isOpenMilestone":true
+               }
+            ],
+            "color":null
+         }
+      ],
+      "displayTimelinePlannedDate":false
+   },
+   "message":null,
+   "exceptionDetails":null
+}

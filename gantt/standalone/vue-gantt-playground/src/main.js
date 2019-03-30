@@ -8,3 +8,5 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
+
+window.d3 = require('d3')
