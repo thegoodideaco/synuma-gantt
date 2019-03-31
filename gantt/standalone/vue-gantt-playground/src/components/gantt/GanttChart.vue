@@ -1,10 +1,26 @@
 <template>
   <div class="gantt">
-    <div class="ticks">
-      <div v-for="(item, index) in timeTicks"
+    <svg width="100%"
+         height="100%">
+      <scale-ticks :scale="zoomTransform || scale"
+                   :count="30"
+                   position="top">
+        <!-- slot content -->
+        <template v-slot:default="item">
+          <!-- {{ item.value | formatDate }} -->
+          <text>{{ item.value | formatDate }}
+
+            <title>{{ item.value }}</title>
+          </text>
+        </template>
+      </scale-ticks>
+    </svg>
+
+    <div class="bg">
+      <div v-for="(item,index) in orderedDescendants"
            :key="index"
-           :style="{left: `${item.x}px`}">
-        {{ item.value | formatDate }}
+           :style="getRowStyle(item)">
+        {{ item.data.name }} / {{ item.data.startDate | formatDate }} - {{ item.data.plannedCompleteDate | formatDate }}
       </div>
     </div>
   </div>
@@ -12,6 +28,7 @@
 
 <script>
 import * as d3 from 'd3'
+import ScaleTicks from '@/components/gantt/ScaleTicks.vue'
 
 export default {
   filters: {
@@ -20,9 +37,13 @@ export default {
     },
 
     formatDate(dateStr) {
-      const f = d3.timeFormat('%a')(new Date(dateStr))
+
+      const f = d3.timeFormat('%b/%y')(typeof dateStr === 'number' ? dateStr : Date.parse(dateStr))
       return f
     }
+  },
+  components: {
+    ScaleTicks: ScaleTicks
   },
   props: {
     value: {
@@ -31,8 +52,12 @@ export default {
   },
   data() {
     return {
-      dimensions: null,
-      tickAmount: 10
+      dimensions:    null,
+      tickAmount:    10,
+      scale:         d3.scaleTime(),
+      scaleY:        d3.scaleLinear(),
+      zoom:          null,
+      zoomTransform: null
     }
   },
   computed: {
@@ -55,9 +80,9 @@ export default {
       return all.splice(1)
     },
 
+    /** @returns {{phases: d3.HierarchyNode<Phase>[], milestones: d3.HierarchyNode<Milestone>[], tasks: d3.HierarchyNode<Task>[]}} */
     groupedDescendants() {
       if (this.orderedDescendants) {
-        /** @type {[d3.HierarchyNode<Phase>[], d3.HierarchyNode<Milestone>[], d3.HierarchyNode<Task>[]]} */
         const [phases, milestones, tasks] = d3
           .nest()
           .key(v => v.depth)
@@ -115,29 +140,9 @@ export default {
       // })
     },
 
+    /** @returns {[number, number]} */
     dateRange() {
       if (this.allDates) return d3.extent(this.allDates)
-    },
-
-    /** @returns {Date[]} */
-    timeTicks() {
-      if (this.dateRange && this.dimensions) {
-        const { width } = this.dimensions
-
-        /** @type {d3.ScaleTime<number,number>} */
-        const s = d3
-          .scaleTime()
-          .domain(this.dateRange)
-          .range([0, width])
-          .nice()
-
-        return s.ticks().map(d => {
-          return {
-            x:     s(d),
-            value: d
-          }
-        })
-      }
     },
 
     totalTime() {
@@ -160,6 +165,38 @@ export default {
           .reverse()
           .join(', ')
       }
+    },
+
+    phaseTimes() {
+      if(!this.groupedDescendants.phases) return []
+      const phases = this.groupedDescendants.phases.filter(
+        v => v.data.startDate != null
+      )
+
+      return phases.map(v => Date.parse(v.data.startDate))
+    }
+  },
+  watch: {
+    /** @param {{width: number, height: number}} val */
+    dimensions: {
+      handler(val) {
+        if (val) {
+          this.scale.range([0, val.width]).nice(30)
+        }
+      },
+      immediate: true
+    },
+
+    /**
+     * @param {number[]} val
+     */
+    allDates: {
+      handler(val) {
+        if (val && val.length) {
+          this.scale.domain(d3.extent(val))
+        }
+      },
+      immediate: true
     }
   },
   mounted() {
@@ -172,7 +209,16 @@ export default {
       width
     } = this.$el.getBoundingClientRect()
 
-    console.log(this.$el)
+    this.scale = d3
+      .scaleTime()
+      .domain(this.dateRange)
+      .range([0, width / 2])
+
+    this.scaleY = d3
+      .scaleLinear()
+      .domain([0, 20])
+      .range([0, height])
+
     this.dimensions = {
       bottom,
       height,
@@ -180,6 +226,52 @@ export default {
       right,
       top,
       width
+    }
+
+    this.zoom = d3
+      .zoom()
+      .scaleExtent([0.25, 4])
+      .on('zoom', () => {
+        /** @type {d3.ZoomTransform} */
+        const z = d3.event.transform
+
+        this.zoomTransform = z.rescaleX(this.scale)
+      })
+
+    this.zoom(d3.select(this.$el))
+
+    // zoom.
+  },
+  methods: {
+
+    /**
+     * @param {number | string} date
+     * @returns {any}
+     */
+    getItemPosition(date) {
+      const x = (this.zoomTransform || this.scale)(typeof date === 'string' ? Date.parse(date) : date)
+
+      return {
+        transform: `translate3d(${x}px, 0, 0)`
+      }
+    },
+
+    /** @param {d3.HierarchyNode<DescendantItem>} item */
+    getRowStyle(item) {
+
+      const date = item.data.startDate
+      const end = item.data.plannedCompleteDate
+
+      const s = typeof date === 'string' ? Date.parse(date) : date
+      const e = typeof end === 'string' ? Date.parse(end) : end
+      const sx = (this.zoomTransform || this.scale)(s)
+      const se = (this.zoomTransform || this.scale)(e)
+
+
+      return {
+        transform: `translate3d(${sx}px, 0, 0)`,
+        width:     `${se - sx}px`
+      }
     }
   }
 }
@@ -191,15 +283,43 @@ export default {
   height: 100%;
   position: relative;
 
-  .ticks {
+  text {
     position: relative;
-    font-size: 10px;
+    font-size: 9px;
     line-height: normal;
-    > * {
-      position: absolute;
-      top: 0;
-      transform: translateX(-50%);
-    }
+    transform-origin: 0 0;
+    transform: rotate(-40deg);
+    text-anchor: unset;
   }
+
+  svg {
+    overflow: visible;
+  }
+}
+
+.circles,
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+.circle {
+  position: absolute;
+  top: 0;
+}
+
+.bg > div {
+  padding: 10px;
+  background-color: green;
+  min-width: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+  border-bottom: 1px solid #fff;
 }
 </style>

@@ -18,7 +18,7 @@
     > * {
       &:nth-child(2) {
         overflow: auto;
-        padding: 10px;
+        padding: 40px 20px 10px;
         background-color: #1c4b58;
       }
     }
