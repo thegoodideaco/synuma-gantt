@@ -12,6 +12,13 @@
 
             <title>{{ item.value }}</title>
           </text>
+
+          <line class="vert"
+                x0="0"
+                y0="0"
+                x1="0"
+                y1="100%"
+                stroke-width="1" />
         </template>
       </scale-ticks>
     </svg>
@@ -294,6 +301,10 @@ export default {
 
   svg {
     overflow: visible;
+
+    line.vert {
+      stroke: rgba(#fff, 0.1);
+    }
   }
 }
 
