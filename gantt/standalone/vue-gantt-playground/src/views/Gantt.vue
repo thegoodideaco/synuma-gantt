@@ -39,7 +39,7 @@ export default {
         data
       } = await d3.json('/data.json')
 
-      this.result = data
+      this.result = Object.freeze(data)
     }
   }
 }
