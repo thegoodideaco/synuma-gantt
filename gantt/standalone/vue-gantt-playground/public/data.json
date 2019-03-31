@@ -14,7 +14,7 @@
             "id":799,
             "order":1,
             "name":"Real Estate",
-            "startDate":"2019-01-04T12:00:00+00:00",
+            "startDate":"2019-01-04T06:40:40+00:00",
             "isCurrent":true,
             "milestones":[
                {
@@ -544,7 +544,7 @@
                         ],
                         "startDate":"2019-07-30T12:00:00+00:00",
                         "plannedCompleteDate":"2019-08-07T12:00:00+00:00",
-                        "estimatedCompleteDate":"2019-08-07T12:00:00+00:00",
+                        "estimatedCompleteDate":"2019-08-17T12:00:00+00:00",
                         "actualCompleteDate":null,
                         "plannedDurationInDays":7,
                         "actualDurationInDays":null,

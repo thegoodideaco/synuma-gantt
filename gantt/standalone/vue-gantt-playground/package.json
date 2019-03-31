@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "d3": "^5.9.2",
+    "normalize.css": "^8.0.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
   },
