@@ -34,8 +34,9 @@
     </div>
 
     <!-- Content -->
-    <div>
-      <ul class="phase-list">
+    <div class="gantt__container">
+      <!-- Left Side -->
+      <ul class="gantt__phase-list">
         <!-- Phases -->
         <li v-for="item in phases"
             :key="item.name">
@@ -45,8 +46,8 @@
             {{ item.name }} - {{ item.startDate | formatDate }}
           </span>
 
-          <!-- Phase Milestones -->
-          <ul>
+          <!-- Milestones -->
+          <ul class="gantt__milestone-list">
             <li v-for="(milestone, index) in item.milestones"
                 :key="index">
               <span :title="milestone | stringify"
@@ -56,7 +57,7 @@
               </span>
 
               <!-- Tasks -->
-              <ul>
+              <ul class="gantt__task-list">
                 <li v-for="(task, taskIndex) in milestone.tasks"
                     :key="taskIndex">
                   <span :title="task | stringify"
@@ -70,12 +71,20 @@
           </ul>
         </li>
       </ul>
+
+      <!-- Right Side -->
+      <div class="gantt__chart-container">
+        <!-- Chart Goes Here -->
+        <gantt-chart v-if="hierarchy"
+                     :value="hierarchy" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import * as d3 from 'd3'
+import GanttChart from '@/components/gantt/GanttChart.vue'
 
 export default {
   name:    'Home',
@@ -88,6 +97,9 @@ export default {
       return f
     }
   },
+  components: {
+    GanttChart: GanttChart
+  },
   data() {
     return {
       /**
@@ -96,7 +108,10 @@ export default {
       result: null,
 
       /** @type {number[]} */
-      dateRange: null
+      dateRange: null,
+
+      /** @type {d3.HierarchyNode<GanttDataObject>} */
+      hierarchy: null
     }
   },
   computed: {
@@ -122,66 +137,39 @@ export default {
       }
     },
     totalTime() {
-      if(this.dateRange) {
+      if (this.dateRange) {
         const [b, e] = d3.extent(this.dateRange)
 
         const ms = e - b
-        const s = ms / 1000 >> 0
-        const m = s / 60 >> 0
-        const h = m / 60 >> 0
-        const d = h / 24 >> 0
+        const s = (ms / 1000) >> 0
+        const m = (s / 60) >> 0
+        const h = (m / 60) >> 0
+        const d = (h / 24) >> 0
 
         const labels = ['seconds', 'minutes', 'hours', 'days']
-        const values = [
-          s % 60,
-          m % 60,
-          h % 24,
-          d % 365
-        ]
+        const values = [s % 60, m % 60, h % 24, d % 365]
 
-        return values.map((v, i)=> {
-          return `${v} ${labels[i]}`
-        }).reverse().join(', ')
+        return values
+          .map((v, i) => {
+            return `${v} ${labels[i]}`
+          })
+          .reverse()
+          .join(', ')
       }
     }
   },
   async mounted() {
-    /** @type {{data: GanttDataObject}} */
+    // Fetch Json Data
+    /** @type {{data: DescendantItem}} */
     const { data } = await d3.json('/data.json')
-    this.result = data
+    this.result = Object.freeze(data)
 
-    this.dateRange = this.getAllDates()
+    // Construct a hierarchy wrapper for functionality
+    this.hierarchy = Object.freeze(
+      d3.hierarchy(this.result, v => v.phases || v.milestones || v.tasks)
+    )
   },
   methods: {
-    getAllDates() {
-
-
-
-      /** @type {number[]} */
-      const all = []
-
-      /** @type {GanttDataObject | Phase | Milestone | Task} */
-      const obj = JSON.parse(JSON.stringify(this.result))
-
-      const rootNode = d3.hierarchy(obj, v => v.phases || v.milestones || v.tasks)
-
-      rootNode.eachBefore(v => {
-        const dates = Object.entries(v.data).reduce((prev, cur) => {
-          const [key, val] = cur
-
-          if(key.match(/date/gi) && typeof val === 'string') {
-            const ms = Date.parse(val)
-            prev.push(ms)
-          }
-
-          return prev
-        }, [])
-
-        all.push(...dates)
-      })
-
-      return all
-    },
     showdata(item) {
       console.log(JSON.stringify(item, null, ' '))
     }
@@ -203,25 +191,52 @@ export default {
   gap: 25px;
 }
 
-.phase-list {
-  // list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  row-gap: 20px;
-
-  ul {
-    padding-left: 10px;
-    margin: 0;
+.gantt {
+  &__container {
+    display: grid;
+    grid: auto / max-content 1fr;
+    gap: 10px;
   }
 
-  li {
-    list-style: none;
-    background-color: #fafafa;
-    padding: 5px;
+  &__phase-list {
+    // list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    row-gap: 20px;
 
-    &:nth-child(odd) {
+    ul {
+      padding-left: 10px;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
       background-color: #fafafa;
+      padding: 5px;
+
+      &:nth-child(odd) {
+        background-color: #fafafa;
+      }
+    }
+  }
+
+  &__milestone-list {
+    color: orange;
+  }
+
+  &__task-list {
+    color: green;
+  }
+
+  &__chart {
+    &-container {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(#000, 0.1);
+      border: 1px solid rgba(#fff, 0.5);
     }
   }
 }

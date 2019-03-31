@@ -13,6 +13,7 @@
     "sourceMap": false,
     "noImplicitAny": false,
     "noImplicitThis": false,
+    "checkJs": false,
     "baseUrl": ".",
     "paths": {
       "*": ["/*"],
@@ -25,7 +26,7 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.tsx",
-    "src/**/*.vue",
+    // "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
