@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "pretty": true,
     "module": "esnext",
     "strict": true,
@@ -11,8 +11,8 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "sourceMap": false,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "checkJs": false,
     "baseUrl": ".",
     "paths": {
@@ -26,7 +26,7 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.tsx",
-    // "src/**/*.vue",
+    "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],

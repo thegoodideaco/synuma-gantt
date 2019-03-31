@@ -1,7 +1,5 @@
 <template>
   <div class="gantt">
-    Hello I am chart {{ value.data | asKeys }}
-
     <div class="ticks">
       <div v-for="(item, index) in timeTicks"
            :key="index"
@@ -14,41 +12,27 @@
 
 <script>
 import * as d3 from 'd3'
+
 export default {
   filters: {
-    /**
-     * @type {{} => string[]}
-     */
     asKeys(val) {
       return Object.keys(val)
     },
+
     formatDate(dateStr) {
-      const f = d3.timeFormat('%A')(new Date(dateStr))
+      const f = d3.timeFormat('%a')(new Date(dateStr))
       return f
     }
   },
-
-  /**
-   * @type {{value: d3.HierarchyNode<GanttDataObject> }}
-   */
   props: {
     value: {
-      type: Object,
-      /** @returns {d3.HierarchyNode<GanttDataObject>} */
-      default() {
-        return {
-          data:     {},
-          height:   1,
-          depth:    4,
-          parent:   null,
-          children: null
-        }
-      }
+      type: Object
     }
   },
   data() {
     return {
-      dimensions: null
+      dimensions: null,
+      tickAmount: 10
     }
   },
   computed: {
@@ -101,8 +85,6 @@ export default {
         /** @type {d3.HierarchyNode<DescendantItem>} */
         const { data } = cur
 
-        // debugger
-
         /** @type {[string, any][]} */
         const dateEntries = Object.entries(data)
 
@@ -142,8 +124,6 @@ export default {
       if (this.dateRange && this.dimensions) {
         const { width } = this.dimensions
 
-
-
         /** @type {d3.ScaleTime<number,number>} */
         const s = d3
           .scaleTime()
@@ -182,9 +162,7 @@ export default {
       }
     }
   },
-  async mounted() {
-    await this.$nextTick()
-
+  mounted() {
     const {
       bottom,
       height,
@@ -203,8 +181,7 @@ export default {
       top,
       width
     }
-  },
-  methods: {}
+  }
 }
 </script>
 
@@ -216,9 +193,12 @@ export default {
 
   .ticks {
     position: relative;
+    font-size: 10px;
+    line-height: normal;
     > * {
       position: absolute;
       top: 0;
+      transform: translateX(-50%);
     }
   }
 }

@@ -7,3 +7,8 @@ declare global {
     vue: VueConstructor & typeof Vue
   }
 }
+
+// declare module '*.vue' {
+//   import Vue from 'vue'
+//   export default Vue
+// }
