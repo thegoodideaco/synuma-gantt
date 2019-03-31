@@ -14,14 +14,6 @@
     height: 100%;
     display: grid;
     grid: auto 1fr / 100%;
-
-    > * {
-      &:nth-child(2) {
-        overflow: auto;
-        padding: 40px 20px 10px;
-        background-color: #1c4b58;
-      }
-    }
   }
 }
 </style>

@@ -84,7 +84,7 @@
 
 <script>
 import * as d3 from 'd3'
-import GanttChart from '@/components/gantt/GanttChart.vue'
+import GanttChart from '@/components/gantt/GanttChart_old.vue'
 
 export default {
   name:    'Home',
@@ -177,7 +177,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .info-bar {
   background-color: #007292;
   color: #fdfdfd;
