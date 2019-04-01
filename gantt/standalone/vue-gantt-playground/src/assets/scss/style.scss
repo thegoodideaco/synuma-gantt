@@ -26,6 +26,10 @@ html {
 .gant-row__info-title {
   height: 60px;
 
+  .chart-row > & {
+    background-color: purple;
+  }
+
 
   .depth-2 & {
     background-color: red;
