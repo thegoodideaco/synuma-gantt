@@ -7,7 +7,7 @@ module.exports = {
     browser: true
   },
 
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:vue/strongly-recommended'
   ],
