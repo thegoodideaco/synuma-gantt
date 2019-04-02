@@ -1,0 +1,75 @@
+$green: #417505;
+$light-gray: #B8B8B8;
+
+$theme-colors: (
+  "green": $green,
+  "light": $light-gray,
+);
+
+@import './lib/bootstrap/scss/bootstrap';
+
+.gantt-label {
+  border-radius: 4px;
+  padding: 3px 10px;
+  color: #FFFFFF; 
+  text-align: center;
+}
+
+.in-progress {
+  background-color: $green; 
+}
+
+.not-started {
+  background-color: $light-gray;
+}
+
+.phase {
+  width: 600px;
+}
+
+.milestone {
+  padding: 5px 0px 5px 20px;
+}
+
+.task-list {
+  font-size: .7em;
+  color: blue;
+}
+
+.dates {
+  span {
+    font-size:.7em;
+  }
+}
+
+.grid-col {
+  padding: 0 3px;
+  min-width: 15px;
+  &:not(.bar) {
+    border-right: 1px solid $light-gray;
+  }
+}
+
+.eom {
+  border-right: 1px solid gray;
+}
+
+.bar {
+  background-color: $green;
+}
+
+.phase-row,
+.milestone-row {
+}
+
+.phase-row {
+  span {
+    height: 10px;
+  }
+}
+
+.milestone-row {
+  span {
+    height: 20px;
+  }
+}
