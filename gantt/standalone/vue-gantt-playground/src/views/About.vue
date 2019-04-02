@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-5">
-    <div class="container-fluid">
+  <div class="pt-5 fill">
+    <div class="container-fluid main-container">
       <div class="row">
         <div class="col">
           <div class="form-check">
@@ -15,72 +15,54 @@
           </div>
         </div>
       </div>
-      <div class="metadata border-right">
-        <div class="col-headers">
-          <!-- TBD figure this shit out -->
+
+      <div class="gantt-container">
+        <div class="metadata border-right">
+          <div class="col-headers">
+            <!-- TBD figure this shit out -->
+          </div>
+
+          <!-- Phase Item Component -->
+          <phase-item v-for="phase in phases"
+                      :key="phase.data.id"
+                      :data="phase" />
         </div>
-        <div class="row mt-4">
-          <div class="col-3">
-            <div class="gantt-label in-progress">
-              In Progress
-            </div>
-          </div>
-          <div class="col phase">
-            <i class="fas fa-angle-down mr-2" />
-            Real Estate
-            <div class="row milestone align-items-center">
-              <div class="col">
-                <i class="fas fa-check-circle mr-2 text-green" />Submit LOI
-              </div>
-              <div class="col task-list">
-                3 of 3 tasks complete
-              </div>
-              <div class="col assigned-to">
-                Justin Davis
-              </div>
-            </div>
-            <div class="row milestone align-items-center">
-              <div class="col">
-                <i class="fas fa-check-circle mr-2 text-light" />Submit LOI
-              </div>
-              <div class="col task-list">
-                3 of 3 tasks complete
-              </div>
-              <div class="col assigned-to">
-                Justin Davis
-              </div>
-            </div>
-            <div class="row milestone align-items-center">
-              <div class="col">
-                <i class="fas fa-check-circle mr-2 text-light" />Submit LOI
-              </div>
-              <div class="col task-list">
-                3 of 3 tasks complete
-              </div>
-              <div class="col assigned-to">
-                Justin Davis
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4 align-items-center">
-          <div class="col-3">
-            <div class="gantt-label not-started">
-              Not Started
-            </div>
-          </div>
-          <div class="col phase">
-            <i class="fas fa-angle-right mr-2" />
-            Real Estate
-          </div>
-        </div>
-      </div> <!-- end .metadata -->
-      <div class="date-grid">
-        <div class="row">
-          <span>1</span>
-          <span>2</span>
+        <!-- end .metadata -->
+        <div class="date-grid">
+          <!-- Gantt Chart -->
+          <gantt-chart v-if="hierarchy"
+                       :hierarchy="hierarchy" />
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { flatten, dataLoad } from '../components/gantt/mixins/GanttHierarchy'
+import PhaseItemVue from '../components/meta/PhaseItem.vue'
+import GanttChartVue from '../components/gantt/NewChart.vue'
+export default {
+  components: {
+    PhaseItem:  PhaseItemVue,
+    GanttChart: GanttChartVue
+  },
+  mixins: [flatten, dataLoad],
+  data() {
+    return {
+      /** @type {d3.HierarchyNode<GanttDataObject>} */
+      hierarchy: null
+    }
+  },
+  computed: {
+    phases() {
+      if (this.hierarchy) {
+        return this.hierarchy.children
+      }
+    }
+  },
+  mounted() {
+    this.loadData()
+  }
+}
+</script>

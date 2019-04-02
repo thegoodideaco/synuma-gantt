@@ -51,7 +51,8 @@ export default {
 
           this.hierarchy = h
         }
-      }
+      },
+      immediate: true
     }
   }
 }
