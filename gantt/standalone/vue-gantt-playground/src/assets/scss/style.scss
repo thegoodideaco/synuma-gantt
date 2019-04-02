@@ -7,6 +7,15 @@
   height: 100%;
 }
 
+.gpu {
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.no-select {
+  user-select: none;
+}
+
 .main-container {
   height: 100%;
   display: grid;
@@ -28,6 +37,7 @@
   height: 40px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .phase-title {

@@ -17,23 +17,26 @@
            :class="[opened ? 'fa-angle-down' : 'fa-angle-right']" />
         {{ phase.name }}
       </div>
-
-      <div v-show="opened">
-        <!-- Milestone Component -->
-        <milestone v-for="milestone in phase.milestones"
-                   :key="milestone.id"
-                   :data="milestone" />
-      </div>
+      <collapse-transition>
+        <div v-show="opened">
+          <!-- Milestone Component -->
+          <milestone v-for="milestone in phase.milestones"
+                     :key="milestone.id"
+                     :data="milestone" />
+        </div>
+      </collapse-transition>
     </div>
   </div>
 </template>
 
 <script>
 import MilestoneVue from './Milestone.vue'
+import CollapseTransitionVue from '../CollapseTransition.vue'
 
 export default {
   components: {
-    Milestone: MilestoneVue
+    Milestone:          MilestoneVue,
+    CollapseTransition: CollapseTransitionVue
   },
   props: {
 

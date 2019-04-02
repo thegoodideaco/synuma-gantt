@@ -3,7 +3,7 @@
        style="overflow: auto">
     <div style="position: absolute; height:100%">
       <!-- Days -->
-      <div class="ticks">
+      <div class="ticks no-select">
         <day-tick v-for="(item, index) in ticks.days"
                   :key="index"
                   class="tick__day"
@@ -14,7 +14,7 @@
              :key="'_'+index"
              class="vertical-tick"
              :style="position(item)">
-          <span style="transform: translateY(-30px)">
+          <span style="position: absolute; transform: translateY(30px) translateX(10px);">
             {{ item | monthFormat }}
           </span>
         </div>
@@ -27,7 +27,8 @@
                :data="phase" />
 
     <!-- Today's Tick -->
-    <div class="vertical-tick"
+    <div v-if="false"
+         class="vertical-tick"
          :style="styles.dayTicker" />
   </div>
 </template>
@@ -35,6 +36,7 @@
 <script>
 import * as d3 from 'd3'
 import GanttHierarchy, { flatten, dateLogic } from './mixins/GanttHierarchy'
+// import {panZoom} from './mixins/Interaction'
 import GantPhaseRowVue from './GantPhaseRow.vue'
 import DayTickVue from './DayTick.vue'
 
@@ -55,7 +57,7 @@ export default {
       return d3.timeFormat('%B')(val)
     }
   },
-  mixins: [GanttHierarchy, flatten, dateLogic],
+  mixins: [GanttHierarchy, flatten, dateLogic ],
   data() {
     return {
       today: Date.now()
@@ -115,7 +117,7 @@ export default {
 
     this.timer = setInterval(() => {
       this.today = Date.now()
-    }, 100)
+    }, 10000)
   },
   beforeDestroy() {
     if (this.timer) {
@@ -129,6 +131,11 @@ export default {
         transform: `translate3d(${x}px, 0, 0)`
       }
     }
+  },
+  provide() {
+    return {
+      chart: this
+    }
   }
 }
 </script>
@@ -136,13 +143,14 @@ export default {
 <style lang="scss">
 .chart__inner {
   position: relative;
+  height: 100%;
   .vertical-tick {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     width: 2px;
-    background-color: #000;
+    background-color: rgba(#000, 0.25);
   }
 
   .ticks {

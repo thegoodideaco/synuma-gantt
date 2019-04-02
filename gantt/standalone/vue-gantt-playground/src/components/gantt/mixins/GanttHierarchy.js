@@ -89,6 +89,8 @@ export const dateLogic = {
         dates
       }
     }
+
+
   },
   provide() {
     return {
@@ -96,6 +98,34 @@ export const dateLogic = {
     }
   }
 }
+
+export const phaseDateLogic = {
+  computed: {
+    maxDate() {
+      if(!this.data.eachBefore) return
+      let max = 0
+      this.data.eachBefore(p => {
+        /** @type {DescendantItem} */
+        let {
+          startDate: sd,
+          plannedCompleteDate: pd,
+          estimatedCompleteDate: ed,
+          actualCompleteDate: ad
+        } = p.data
+
+        sd = Date.parse(sd || 0)
+        pd = Date.parse(pd || 0)
+        ed = Date.parse(ed || 0)
+        ad = Date.parse(ad || 0)
+
+        max = Math.max(max, sd, pd, ed, ad)
+      })
+
+      return max
+    }
+  }
+}
+
 
 export default {
   props: {
