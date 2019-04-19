@@ -11,6 +11,6 @@ Vue.config.productionTip = false
 window.vue = new Vue({
   router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#ganttContainer')
 
 window.d3 = require('d3')

@@ -11,6 +11,7 @@ npm run serve
 ```
 
 ### Compiles and minifies for production
+#### This will mount the Gantt Chart to an element with an id of `ganttContainer`
 ```
 npm run build
 ```
