@@ -19,7 +19,7 @@
 .main-container {
   height: 100%;
   display: grid;
-  grid: auto 1fr / 100%;
+  grid: 1fr / 100%;
 }
 
 .gantt-container {
@@ -30,6 +30,10 @@
   .date-grid {
     background-color: $gray-100;
     overflow: hidden;
+  }
+
+  .metadata {
+    padding-left: 15px;
   }
 }
 

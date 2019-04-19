@@ -62,11 +62,11 @@ export default {
   position: relative;
 
   .bar {
-    height: 22px;
+    height: 8px;
     min-width: 4px;
     background-color: #007adb;
     position: absolute;
-    // top: 0;
+    top: 2px;
     left: 0;
   }
 }

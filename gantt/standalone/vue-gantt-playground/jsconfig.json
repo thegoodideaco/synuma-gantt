@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "pretty": true,
     "module": "esnext",
     "strict": true,
@@ -11,26 +11,27 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "sourceMap": false,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "checkJs": false,
     "baseUrl": ".",
     "paths": {
-      "*": ["/*"],
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "lib": [
+      "esnext",
+      "es6",
+      "dom",
+      "dom.iterable"
+    ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "typeAcquisition": {"enable": true}
 }

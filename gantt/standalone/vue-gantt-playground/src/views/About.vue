@@ -1,21 +1,6 @@
 <template>
-  <div class="pt-5 fill">
-    <div class="container-fluid main-container">
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input id="plannedTimelines"
-                   class="form-check-input"
-                   type="checkbox"
-                   value="">
-            <label class="form-check-label"
-                   for="plannedTimelines">
-              Show planned timelines
-            </label>
-          </div>
-        </div>
-      </div>
-
+  <div class="fill">
+    <div class="main-container">
       <div class="gantt-container">
         <div class="metadata border-right">
           <div class="col-headers">

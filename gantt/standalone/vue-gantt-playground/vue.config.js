@@ -1,13 +1,9 @@
 module.exports = {
-  lintOnSave:          undefined,
-  publicPath:          undefined,
-  outputDir:           undefined,
-  assetsDir:           undefined,
-  runtimeCompiler:     true,
-  productionSourceMap: undefined,
-  parallel:            undefined,
+  lintOnSave:      undefined,
+  runtimeCompiler: true,
 
   css: {
-    sourceMap: true
+    sourceMap: true,
+    extract:   false
   }
 }

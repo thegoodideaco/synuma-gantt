@@ -1,19 +1,32 @@
 <template>
-  <div
-    class="milestone gantt-row">
-    <div v-if="info.startDate">
+  <div class="milestone gantt-row">
+    <!-- Bar -->
+    <div v-if="info.startDate"
+         @mouseover="showPopover = true"
+         @mouseout="showPopover = false">
       <div class="bar bar-full"
            :style="position(maxDate)">
-        <span>
+           <!-- <span>
           Start {{ milestone.startDate | formatted }}
         </span>
         <span>
           Planned {{ milestone.plannedCompleteDate | formatted }}
         </span>
         <span>
-          Actual  {{ milestone.actualCompleteDate | formatted }}
-        </span>
+          Actual {{ milestone.actualCompleteDate | formatted }}
+        </span> -->
       </div>
+
+      <popover :value="showPopover">
+        <div :style="mousePosition"
+             class="card">
+          <h6>Status</h6>
+
+          <div>
+            Planned end: {{ milestone.plannedCompleteDate | formatted }}
+          </div>
+        </div>
+      </popover>
     </div>
   </div>
 </template>
@@ -22,19 +35,29 @@
 <script>
 import * as d3 from 'd3'
 import { phaseDateLogic } from './mixins/GanttHierarchy'
+import PopoverVue from '../Popover.vue'
 export default {
   name:    'GantMilestone',
   filters: {
     formatted(val) {
-      if(val == null) return 'N/A'
+      if (val == null) return 'N/A'
       return d3.timeFormat('%B %d')(Date.parse(val))
     }
+  },
+  components: {
+    Popover: PopoverVue
   },
   mixins: [phaseDateLogic],
   props:  {
     /** @type {Vue.PropType<Milestone>} */
     data: {
       type: Object
+    }
+  },
+  data() {
+    return {
+      showPopover:   false,
+      mousePosition: null
     }
   },
   computed: {
@@ -78,9 +101,10 @@ export default {
 
       const w = p || e || a || null
 
-      if(w == null) return {
-        display: 'none'
-      }
+      if (w == null)
+        return {
+          display: 'none'
+        }
 
       return {
         barStyle: {
@@ -94,15 +118,30 @@ export default {
       return this.chart.scale
     }
   },
-  inject:  ['chart'],
+  inject: ['chart'],
+  mounted() {
+    window.addEventListener('mousemove', this.onMove)
+
+    this.$on('hook:beforeDestroy', () => {
+      window.removeEventListener('mousemove', this.onMove)
+    })
+  },
   methods: {
     position(date) {
-      if(!this.scale) return
+      if (!this.scale) return
       const x = this.scale(Date.parse(this.milestone.startDate))
       const w = this.scale(date) - x
       return {
         transform: `translate(${x}px)`,
         width:     `${w}px`
+      }
+    },
+
+    /** @param {MouseEvent} me */
+    onMove(me) {
+      this.mousePosition = {
+        left: `${me.pageX}px`,
+        top:  `${me.pageY}px`
       }
     }
   }
@@ -111,7 +150,6 @@ export default {
 
 <style scoped lang="scss">
 .bar {
-
   height: 100%;
   position: absolute;
   top: 0;
@@ -120,6 +158,7 @@ export default {
   align-items: center;
   padding: 6px 15px;
   // opacity: 0.5;
+
 
   &-e {
     background-color: #aedbff;
@@ -132,7 +171,12 @@ export default {
     background-color: #26bb2e;
   }
   &-full {
-    border: 2px solid orange;
+    border: 2px solid #80c6fd;
+    background-color: #80c6fd;
+
+    &:hover {
+      background-color: lighten(#80c6fd, 4);
+    }
 
     > * {
       padding: 3px 10px;
@@ -152,5 +196,12 @@ export default {
       }
     }
   }
+}
+
+.card {
+  padding: 15px;
+  position: relative;
+  // top: 25px;
+  transform: translate3d(-50%, 20px, 0);
 }
 </style>

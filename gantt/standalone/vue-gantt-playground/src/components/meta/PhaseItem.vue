@@ -18,7 +18,7 @@
         {{ phase.name }}
       </div>
       <collapse-transition>
-        <div v-show="opened">
+        <div v-if="opened">
           <!-- Milestone Component -->
           <milestone v-for="milestone in phase.milestones"
                      :key="milestone.id"
