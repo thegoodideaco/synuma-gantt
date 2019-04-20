@@ -1,53 +1,73 @@
 <template>
-  <div class="fill">
-    <div class="main-container">
-      <div class="gantt-container">
-        <div class="metadata border-right">
-          <div class="col-headers">
-            <!-- TBD figure this shit out -->
-          </div>
+  <div class="demo">
+    <section>
+      <h2>Gantt Chart Example</h2>
+      <p>
+        This component looks for a dataset based on the demo data structure.
+      </p>
+      <p>
+        Simply mount this component, and assign dataset to it's data value.
+      </p>
+    </section>
 
-          <!-- Phase Item Component -->
-          <phase-item v-for="phase in phases"
-                      :key="phase.data.id"
-                      :data="phase" />
-        </div>
-        <!-- end .metadata -->
-        <div class="date-grid">
-          <!-- Gantt Chart -->
-          <gantt-chart v-if="hierarchy"
-                       :hierarchy="hierarchy" />
-        </div>
+    <section>
+      <div>
+        <!-- This is all you need -->
+        <standalone-gantt :dataset="data" />
+        <!-- -------------------- -->
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
-import { flatten, dataLoad } from '../components/gantt/mixins/GanttHierarchy'
-import PhaseItemVue from '../components/meta/PhaseItem.vue'
-import GanttChartVue from '../components/gantt/NewChart.vue'
+import StandaloneGanttChartVue from '../components/gantt/StandaloneGanttChart.vue'
+import * as d3 from 'd3'
 export default {
   components: {
-    PhaseItem:  PhaseItemVue,
-    GanttChart: GanttChartVue
+    StandaloneGantt: StandaloneGanttChartVue
   },
-  mixins: [flatten, dataLoad],
   data() {
     return {
-      /** @type {d3.HierarchyNode<GanttDataObject>} */
-      hierarchy: null
+      data: null
     }
   },
-  computed: {
-    phases() {
-      if (this.hierarchy) {
-        return this.hierarchy.children
-      }
-    }
-  },
-  mounted() {
-    this.loadData()
+  async mounted() {
+    const { data } = await d3.json('/data.json')
+
+    this.data = data
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.demo {
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid: auto 1fr / 100%;
+  background-color: darken(#fff, 4);
+
+  section {
+    &:first-child {
+      height: 20vh;
+      text-align: center;
+      padding: 25px;
+    }
+
+    &:last-child {
+      padding: 50px;
+      overflow: hidden;
+
+      > div {
+        background-color: #fff;
+        overflow: auto;
+        padding: 3px;
+        border: 1px solid rgba(#000, 0.2);
+        box-shadow: 0 0 3px rgba(#000, 0.15);
+        height: 100%;
+      }
+    }
+  }
+}
+</style>

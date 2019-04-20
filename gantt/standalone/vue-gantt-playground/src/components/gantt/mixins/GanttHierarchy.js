@@ -22,6 +22,35 @@ export const dataLoad = {
       result: null
     }
   },
+  props: {
+    dataset: {
+      type: Array
+    }
+  },
+  watch: {
+    dataset: {
+      handler(val) {
+        if(!val) return
+        this.result = Object.freeze(val)
+
+        const h = d3.hierarchy(this.result, v => {
+          /** @type {DescendantItem} */
+          const item = v
+          return item.phases || item.milestones || item.tasks
+        })
+
+        h.each(v => {
+          Object.assign(v, {
+            opened: true
+          })
+        })
+
+        // Construct a hierarchy wrapper for functionality
+        this.hierarchy = h
+      },
+      immediate: true
+    }
+  },
 
   methods: {
     async loadData() {

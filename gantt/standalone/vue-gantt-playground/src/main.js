@@ -5,6 +5,9 @@ import router from './router'
 import 'normalize.css'
 import '@/assets/scss/style.scss'
 
+// Provide a global gantt chart component
+Vue.component('StandaloneGanttChart', () => import('@/components/gantt/StandaloneGanttChart.vue'))
+
 
 Vue.config.productionTip = false
 

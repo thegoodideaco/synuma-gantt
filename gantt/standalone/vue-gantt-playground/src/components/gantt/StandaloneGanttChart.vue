@@ -1,0 +1,53 @@
+<template>
+  <div class="fill">
+    <div class="main-container">
+      <div class="gantt-container">
+        <div class="metadata border-right">
+          <div class="col-headers">
+            <!-- TBD figure this shit out -->
+          </div>
+
+          <!-- Phase Item Component -->
+          <phase-item v-for="phase in phases"
+                      :key="phase.data.id"
+                      :data="phase" />
+        </div>
+        <!-- end .metadata -->
+        <div class="date-grid">
+          <!-- Gantt Chart -->
+          <gantt-chart v-if="hierarchy"
+                       :hierarchy="hierarchy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { flatten, dataLoad } from './mixins/GanttHierarchy'
+import GanttChartVue from './NewChart.vue'
+import PhaseItemVue from '../meta/PhaseItem.vue'
+export default {
+  components: {
+    PhaseItem:  PhaseItemVue,
+    GanttChart: GanttChartVue
+  },
+  mixins: [flatten, dataLoad],
+  data() {
+    return {
+      /** @type {d3.HierarchyNode<GanttDataObject>} */
+      hierarchy: null
+    }
+  },
+  computed: {
+    phases() {
+      if (this.hierarchy) {
+        return this.hierarchy.children
+      }
+    }
+  },
+  mounted() {
+    // this.loadData()
+  }
+}
+</script>
